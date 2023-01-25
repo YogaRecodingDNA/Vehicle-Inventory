@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addCar } from './carsSlice'; // Listening for this action creator function 
 
 const carFormSlice = createSlice({
   name: 'car-form',
@@ -13,6 +14,12 @@ const carFormSlice = createSlice({
     changeCost: (state, action) => {
       state.cost = action.payload;
     }
+  },
+  extraReducers(builder) { // To remove text from form fields upon submission
+    builder.addCase(addCar, (state, action) => {
+      state.name = "";
+      state.cost = 0;
+    });
   }
 });
 

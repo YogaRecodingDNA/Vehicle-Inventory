@@ -26,7 +26,7 @@ const carsSlice = createSlice({
         return car.id !== action.payload
       });
 
-      state.data = updated;
+      state.data = updatedCars;
     }
   }
 });
